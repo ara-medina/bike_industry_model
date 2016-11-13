@@ -46,12 +46,14 @@ class Shop(object):
 
 		print(self.can_buy)
 
-	# a function to determine how many bikes are left in stock after a purchase is made 
+	# a function to determine how many bikes are left in stock after a purchase is made and what the store's profit is
 	def postPurchase(self, customer):
 		for model in self.inventory:
 			if model.name == customer.purchased[0]:
 				self.in_stock[model.name] = self.in_stock[model.name] - 1
 				print(self.in_stock[model.name])
+				store_profit = model.cost * 0.2 
+				print(store_profit)
 
 
 class Customer(object):
