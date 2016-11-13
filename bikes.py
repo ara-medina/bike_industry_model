@@ -15,6 +15,7 @@ class Shop(object):
 		self.can_buy = {}
 		self.in_stock = {}
 
+	# a function to determine how many bikes are in stock for each model at the store 
 	def stock(self, stock_list):
 		bikes = []
 
@@ -27,6 +28,7 @@ class Shop(object):
 			self.in_stock[bikes[i]] = stock_list[i]
 
 
+	# a function to determine the price the bike will sell for at the store 
 	def price(self):
 		for model in self.inventory:
 			bike_cost = model.cost * 1.2
@@ -34,6 +36,7 @@ class Shop(object):
 
 		print(self.prices)
 
+	# a function to create a dictionary of bikes that a customer can afford to buy 
 	def afford(self, customer):
 		print(customer.name)
 
@@ -43,6 +46,7 @@ class Shop(object):
 
 		print(self.can_buy)
 
+	# a function to determine how many bikes are left in stock after a purchase is made 
 	def postPurchase(self, customer):
 		for model in self.inventory:
 			if model.name == customer.purchased[0]:
@@ -56,6 +60,7 @@ class Customer(object):
 		self.budget = budget
 		self.purchased = None
 
+	# a function that models a customer buying a bike and then calculates their remaining funds
 	def purchase(self, shop):
 		self.purchased = random.choice(list(shop.can_buy.items()))
 		print(self.purchased)
